@@ -1,0 +1,4 @@
+@page "{id:int}"
+@model DetailsModel
+@{Layout=null;}
+<!doctype html><html lang="fa" dir="rtl"><head><meta charset="utf-8"/><title>قرارداد @Model.Item.Number</title><link rel="stylesheet" href="~/site.css"/></head><body class="print"><h1>@Model.Item.Title</h1><p>شماره: @Model.Item.Number</p><p>طرف قرارداد: @Model.Item.Party</p><p>مبلغ: @Model.Item.Amount.ToString("N0") ریال</p><p>از @Shamsi.Format(Model.Item.StartDate) تا @Shamsi.Format(Model.Item.EndDate)</p><p>وضعیت: @Model.Item.Status</p><p class="notes">@Model.Item.Notes</p><p>برای چاپ یا ذخیره PDF از گزینه چاپ مرورگر استفاده کنید.</p></body></html>

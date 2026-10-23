@@ -1,0 +1,4 @@
+@page
+@model IndexModel
+@{ViewData["Title"]="نمای کلی";}
+<div class="cards"><section><span>کل قراردادها</span><strong>@Model.Total</strong></section><section><span>قراردادهای فعال</span><strong>@Model.Active</strong></section><section><span>پایان در ۳۰ روز آینده</span><strong>@Model.Expiring</strong></section></div><section><h2>مدیریت قراردادها در یک نگاه</h2><p>قرارداد جدید ثبت کنید، مستندات را پیوست کنید و تاریخ پایان قراردادها را پیگیری کنید.</p><a class="button" asp-page="/Edit">+ تعریف قرارداد</a> <a asp-page="/Contracts">مشاهده فهرست قراردادها</a></section>
