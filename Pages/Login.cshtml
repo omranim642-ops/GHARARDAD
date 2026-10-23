@@ -1,4 +1,4 @@
 @page
 @model LoginModel
 @{ViewData["Title"]="ورود مدیر";}
-<section><p>برای دسترسی به اطلاعات قراردادها وارد شوید.</p><form method="post"><div asp-validation-summary="All"></div><label>رمز مدیر<input asp-for="Password" type="password" autocomplete="current-password" required/></label><button>ورود</button></form></section>
+<section><p>برای دسترسی به اطلاعات قراردادها وارد شوید.</p><form method="post"><div asp-validation-summary="All"></div><label>نام کاربری<input asp-for="Username" autocomplete="username" required/></label><label>رمز مدیر<input asp-for="Password" type="password" autocomplete="current-password" required/></label><button>ورود</button></form></section>

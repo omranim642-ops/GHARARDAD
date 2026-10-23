@@ -15,7 +15,14 @@ public class Contract {
  public List<Attachment> Attachments {get;set;}=[];
 }
 public class Attachment { public int Id {get;set;} public int ContractId {get;set;} public string Name {get;set;}=""; public byte[] Content {get;set;}=[]; }
+public class AdminAccount {
+ public int Id {get;set;}
+ public string PasswordHash {get;set;}="";
+ public bool MustChangePassword {get;set;}=true;
+ public string SecurityStamp {get;set;}=Guid.NewGuid().ToString("N");
+}
 public class AppDb(DbContextOptions<AppDb> options):DbContext(options) {
+ public DbSet<AdminAccount> Admins=>Set<AdminAccount>();
  public DbSet<Contract> Contracts=>Set<Contract>(); public DbSet<Attachment> Attachments=>Set<Attachment>();
  protected override void OnModelCreating(ModelBuilder b) { b.Entity<Contract>().HasIndex(x=>x.Number).IsUnique(); b.Entity<Contract>().Property(x=>x.Amount).HasPrecision(18,0); b.Entity<Attachment>().HasOne<Contract>().WithMany(x=>x.Attachments).HasForeignKey(x=>x.ContractId).OnDelete(DeleteBehavior.Cascade); }
 }
